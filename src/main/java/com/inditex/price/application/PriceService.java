@@ -5,6 +5,7 @@ import com.inditex.price.domain.Price;
 import com.inditex.price.domain.port.PriceQuery;
 import com.inditex.price.exceptions.PriceNotFoundException;
 import com.inditex.price.infrastructure.adapter.persistence.PriceEntity;
+import com.inditex.price.infrastructure.adapter.persistence.PriceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
