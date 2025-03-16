@@ -24,15 +24,21 @@ public class PriceService implements PriceQuery {
 
     @Override
     public Price getPrice(LocalDateTime date, Long productId, Long brandId) {
-            List<PriceEntity> prices = priceRepository.findByProductIdAndBrandIdAndStartDateBeforeAndEndDateAfterOrderByPriorityDesc(
-                            productId, brandId, date, date);
-            if (prices.isEmpty()) {
-                throw new PriceNotFoundException("No price found for the given parameters");
-            }
-            PriceEntity priceEntity = prices.get(0);
-            return new Price(priceEntity.getProductId(), priceEntity.getBrandId(),
-                    priceEntity.getPriceList(), priceEntity.getStartDate(),
-                    priceEntity.getEndDate(), priceEntity.getPrice(), priceEntity.getCurr());
-        }
-    }
+        // Se obtienen los precios que cumplen con los criterios de búsqueda, ordenados por prioridad descendente.
+        List<PriceEntity> prices = priceRepository.findByProductIdAndBrandIdAndStartDateBeforeAndEndDateAfterOrderByPriorityDesc(
+                productId, brandId, date, date);
 
+        // Si no se encuentran precios, se lanza una excepción
+        if (prices.isEmpty()) {
+            throw new PriceNotFoundException("No price found with given parameters");
+        }
+
+        // Se selecciona el primer resultado de la lista que está ordenada por prioridad.
+        PriceEntity priceEntity = prices.get(0);
+
+
+        return new Price(priceEntity.getProductId(), priceEntity.getBrandId(),
+                priceEntity.getPriceList(), priceEntity.getStartDate(),
+                priceEntity.getEndDate(), priceEntity.getPrice(), priceEntity.getCurr());
+    }
+}
