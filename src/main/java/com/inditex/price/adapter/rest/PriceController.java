@@ -1,6 +1,5 @@
-package com.inditex.price.infrastructure.adapter.api;
+package com.inditex.price.adapter.rest;
 
-import com.inditex.price.application.ports.in.PriceQueryPort;
 import com.inditex.price.application.ports.in.PriceQueryPort;
 import com.inditex.price.domain.model.Price;
 import org.springframework.beans.factory.annotation.Autowired;
