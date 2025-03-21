@@ -1,7 +1,6 @@
 package com.inditex.price.infrastructure.adapter.api;
 
 import com.inditex.price.application.ports.in.PriceQueryPort;
-import com.inditex.price.domain.model.Price;
 import com.inditex.price.application.ports.in.PriceQueryPort;
 import com.inditex.price.domain.model.Price;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 
+//Endpoint que permite obtener el precio aplicable para un producto en una fecha y marca específicas.
 @RestController
 @RequestMapping("/api/prices")
 public class PriceController {
@@ -31,7 +31,9 @@ public class PriceController {
             @RequestParam("productId") Long productId,
             @RequestParam("brandId") Long brandId) {
 
+        // Llamo al servicio de aplicación para obtener el precio correspondiente
         Price price = priceQuery.getPrice(date, productId, brandId);
+        // Devuelvo el precio en la respuesta
         return ResponseEntity.ok(price);
     }
 }
