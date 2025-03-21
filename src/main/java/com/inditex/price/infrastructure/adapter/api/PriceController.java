@@ -1,8 +1,9 @@
 package com.inditex.price.infrastructure.adapter.api;
 
-
-import com.inditex.price.domain.Price;
-import com.inditex.price.domain.port.PriceQuery;
+import com.inditex.price.application.ports.in.PriceQueryPort;
+import com.inditex.price.domain.model.Price;
+import com.inditex.price.application.ports.in.PriceQueryPort;
+import com.inditex.price.domain.model.Price;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +18,10 @@ import java.time.LocalDateTime;
 @RequestMapping("/api/prices")
 public class PriceController {
 
-    private final PriceQuery priceQuery;
+    private final PriceQueryPort priceQuery;
 
     @Autowired
-    public PriceController(PriceQuery priceQuery) {
+    public PriceController(PriceQueryPort priceQuery) {
         this.priceQuery = priceQuery;
     }
 

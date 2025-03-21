@@ -1,4 +1,4 @@
-package com.inditex.price.infrastructure.adapter.persistence;
+package com.inditex.price.adapter.persistence;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

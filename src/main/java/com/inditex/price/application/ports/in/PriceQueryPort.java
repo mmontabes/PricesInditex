@@ -1,9 +1,9 @@
-package com.inditex.price.domain.port;
+package com.inditex.price.application.ports.in;
 
 import com.inditex.price.domain.model.Price;
 
 import java.time.LocalDateTime;
 
-public interface PriceQuery {
+public interface PriceQueryPort {
     Price getPrice(LocalDateTime date, Long productId, Long brandId);
 }
