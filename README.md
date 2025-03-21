@@ -6,14 +6,14 @@ El servicio permite consultar los precios de productos según un rango de fechas
 Incluye:
 - Persistencia de datos en una base de datos en memoria H2 para facilitar las pruebas.
 - APIs REST diseñadas siguiendo principios de arquitectura hexagonal.
-- Implementación de lógica de negocio clara utilizando DDD (Domain-Driven Design).
 
 - ## Stack Tecnológico utilizado
-- Lenguaje: Java 17/21
+- Lenguaje: Java 17
 - Framework: Spring Boot
 - Base de Datos: H2 (en memoria)
 - Arquitectura: Hexagonal
 - Creación API: OpenAPI
+- Testing: Junit
 
 - ## Arquitectura
 El proyecto implementa una arquitectura hexagonal donde:
