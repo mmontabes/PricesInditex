@@ -1,29 +1,29 @@
-Este proyecto es un microservicio desarrollado en Java (Spring Boot) que gestiona precios de productos para diferentes marcas y provee un punto de acceso REST para consultas. Implementa una arquitectura hexagonal y utiliza una base de datos en memoria H2 para pruebas y almacenamiento temporal de datos.
+This project is a microservice developed in Java (Spring Boot) that manages product prices for different brands and provides a REST access point for queries. It follows a hexagonal architecture and uses an in-memory H2 database for testing and temporary data storage.
 
-## Descripción
-El servicio permite consultar los precios de productos según un rango de fechas, marca y producto específicos. Los precios incluyen información como la prioridad, el rango de validez y la moneda en la que se expresan.
+## Description
+The service allows querying product prices based on a date range, brand, and specific product. The prices include information such as priority, validity period, and the currency in which they are expressed.
 
-Incluye:
-- Persistencia de datos en una base de datos en memoria H2 para facilitar las pruebas.
-- APIs REST diseñadas siguiendo principios de arquitectura hexagonal.
+Features:
+- Data persistence in an in-memory H2 database to facilitate testing.
+- REST APIs designed following hexagonal architecture principles.
 
-- ## Stack Tecnológico utilizado
-- Lenguaje: Java 17
+- ## Technology stack
+- Language: Java 17
 - Framework: Spring Boot
-- Base de Datos: H2 (en memoria)
-- Arquitectura: Hexagonal
-- Creación API: OpenAPI
+- Database: H2 (in memory)
+- Architecture: Hexagonal
+- API Ceration: OpenAPI
 - Testing: Junit
 
-- ## Arquitectura
-El proyecto implementa una arquitectura hexagonal donde:
-1. Dominio: Contiene las entidades, servicios y lógica de negocio.
-2. Aplicación: Gestiona los casos de uso y conecta las peticiones con el dominio.
-3. Infraestructura: Maneja la persistencia y adaptadores externos (por ejemplo, controladores REST).
+- ## Architecture
+The project follows a hexagonal architecture where:
+1. Domain: Contains entities, services, and business logic.
+2. Application: Manages use cases and connects requests to the domain.
+3. Infrastructure: Handles persistence and external adapters (e.g., REST controllers).
 
-4. Casos de prueba cubiertos:
-Consulta a las 10:00 del día 14.
-Consulta a las 16:00 del día 14.
-Consulta a las 21:00 del día 14.
-Consulta a las 10:00 del día 15.
-Consulta a las 21:00 del día 16.
+- ## Covered test cases:
+Query at 10:00 on the 14th.
+Query at 16:00 on the 14th.
+Query at 21:00 on the 14th.
+Query at 10:00 on the 15th.
+Query at 21:00 on the 16th.
