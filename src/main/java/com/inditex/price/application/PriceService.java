@@ -18,7 +18,7 @@ public class PriceService implements PriceQueryPort {
         this.priceRepositoryPort = priceRepositoryPort;
     }
 
-    // Obtiene el precio aplicable para un producto en una fecha y marca específicas.
+    // Retrieves the applicable price for a product on a specific date and brand.
     @Override
     public Price getPrice(LocalDateTime date, Long productId, Long brandId) {
         return priceRepositoryPort.findApplicablePrice(date, productId, brandId)

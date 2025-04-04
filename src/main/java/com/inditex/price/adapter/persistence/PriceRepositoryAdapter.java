@@ -18,14 +18,14 @@ public class PriceRepositoryAdapter implements PriceRepositoryPort {
         this.priceRepository = priceRepository;
     }
 
-    //Busco el precio aplicable para un producto, marca y fecha dados.
+    // Searching for the applicable price for a given product, brand, and date.
     @Override
     public Optional<Price> findApplicablePrice(LocalDateTime date, Long productId, Long brandId) {
-        // Consulto la base de datos para obtener los precios que coincidan con los parámetros y prioridad descendente
+        // Query the database to retrieve prices that match the parameters, sorted by descending priority.
         List<PriceEntity> prices = priceRepository.findByProductIdAndBrandIdAndStartDateBeforeAndEndDateAfterOrderByPriorityDesc(
                 productId, brandId, date, date);
 
-        //Si no hay precios aplicables devuelvo un optional vacio
+        // If no applicable prices are found, return an empty optional.
         if (prices.isEmpty()) {
             return Optional.empty();
         }

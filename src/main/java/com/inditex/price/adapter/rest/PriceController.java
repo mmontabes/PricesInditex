@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 
-//Endpoint que permite obtener el precio aplicable para un producto en una fecha y marca específicas.
+// Endpoint that allows retrieving the applicable price for a product on a specific date and brand.
 @RestController
 @RequestMapping("/api/prices")
 public class PriceController {
@@ -30,9 +30,9 @@ public class PriceController {
             @RequestParam("productId") Long productId,
             @RequestParam("brandId") Long brandId) {
 
-        // Llamo al servicio de aplicación para obtener el precio correspondiente
+        // Call the application service to obtain the corresponding price
         Price price = priceQuery.getPrice(date, productId, brandId);
-        // Devuelvo el precio en la respuesta
+        // Return the price in the response
         return ResponseEntity.ok(price);
     }
 }
